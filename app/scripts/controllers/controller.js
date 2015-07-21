@@ -35,4 +35,6 @@ angular.module('webControllerApp')
   .controller('ControllerCtrl', function ($scope, $routeParams, webClient) {
     $scope.roomId = $routeParams.roomId;
     $scope.client = webClient;
+    componentHandler.upgradeAllRegistered();
   });
+  
