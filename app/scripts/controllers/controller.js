@@ -39,7 +39,7 @@ angular.module('webControllerApp')
     $scope.client = webClient;
     
     //加速度を取得する
-    var sensitivity = 20;
+    var sensitivity = 30;
     var x1 = 0, y1 = 0, z1 = 0, x2 = 0, y2 = 0, z2 = 0;
     window.addEventListener('devicemotion', function (e) {
         x1 = e.accelerationIncludingGravity.x;
