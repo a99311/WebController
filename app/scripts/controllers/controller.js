@@ -9,7 +9,7 @@
  */
 angular.module('webControllerApp')
   .factory('webClient', function($websocket) {
-    var webSocket = $websocket('wss://website.com/data');
+    var webSocket = $websocket('ws://52.69.242.197:3000');
     
     window.addEventListener("devicemotion", function(e){
       console.log(e);
@@ -17,17 +17,19 @@ angular.module('webControllerApp')
     
     var client = {
       up: function (roomId){
-        console.log("up:" + roomId);
-        webSocket.send(JSON.stringify({ roomId: roomId, action: 'up' }));
+        webSocket.send("" + roomId + "," + 0);
       },
       down: function (roomId){
-        webSocket.send(JSON.stringify({ roomId: roomId, action: 'down' }));
+        webSocket.send("" + roomId + "," + 1);
       },
       left: function (roomId){
-        webSocket.send(JSON.stringify({ roomId: roomId, action: 'left' }));
+        webSocket.send("" + roomId + "," + 2);
       },
       right: function (roomId){
-        webSocket.send(JSON.stringify({ roomId: roomId, action: 'right' }));
+        webSocket.send("" + roomId + "," + 3);
+      },
+      shake: function (roomId){
+        webSocket.send("" + roomId + "," + 4);
       }
     };
     return client;
@@ -35,6 +37,26 @@ angular.module('webControllerApp')
   .controller('ControllerCtrl', function ($scope, $routeParams, webClient) {
     $scope.roomId = $routeParams.roomId;
     $scope.client = webClient;
+    
+    //加速度を取得する
+    var sensitivity = 20;
+    var x1 = 0, y1 = 0, z1 = 0, x2 = 0, y2 = 0, z2 = 0;
+    window.addEventListener('devicemotion', function (e) {
+        x1 = e.accelerationIncludingGravity.x;
+        y1 = e.accelerationIncludingGravity.y;
+        z1 = e.accelerationIncludingGravity.z;
+    }, false);
+    setInterval(function () {
+        var change = Math.abs(x1-x2+y1-y2+z1-z2);
+
+        if (change > sensitivity) {
+            $scope.client.shake($scope.roomId);
+        }
+        x2 = x1;
+        y2 = y1;
+        z2 = z1;
+    }, 150);
+    //mdlのclass反映
     componentHandler.upgradeAllRegistered();
   });
   

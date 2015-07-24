@@ -9,9 +9,6 @@
  */
 angular.module('webControllerApp')
   .controller('MainCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+    //mdlのclass反映
+    componentHandler.upgradeAllRegistered();
   });
