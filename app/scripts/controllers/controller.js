@@ -9,7 +9,7 @@
  */
 angular.module('webControllerApp')
   .factory('webClient', function($websocket) {
-    var webSocket = $websocket('ws://52.69.242.197:3000');
+    var webSocket = $websocket('ws://52.192.81.231:3000');
     
     window.addEventListener("devicemotion", function(e){
       console.log(e);
