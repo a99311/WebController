@@ -1,42 +1,18 @@
-<div class="mdl-grid">
-  <div class="mdl-card mdl-cell mdl-cell--12-col mdl-cell--4-col-phone mdl-shadow--2dp">
-    <div class="mdl-card__title">
-      <h2 class="mdl-card__title-text">Room{{roomId}}</h2>
-    </div>
-    <div class="mdl-card__supporting-text">
-      <div class="centering">
-      <button
-        ng-click="client.up(roomId)"
-        class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored up">
-          <i class="material-icons">keyboard_arrow_up</i>
-      </button>
-      </div>
-      <div>
-      <button
-        ng-click="client.left(roomId)"
-        class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored left">
-          <i class="material-icons">keyboard_arrow_left</i>
-      </button>
-      <button
-         ng-click="client.right(roomId)"
-         class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored right">
-         <i class="material-icons">keyboard_arrow_right</i>
-      </button>
-      </div>
-      <div class="centering clear">
-      <button
-        ng-click="client.dowm(roomId)"
-        class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored down">
-          <i class="material-icons">keyboard_arrow_down</i>
-      </button>
-      </div>
-    </div>
-    <div class="mdl-card__actions  mdl-card--border">
-      <a
-        ng-href="#/"
-        class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-        back
-      </a>
-    </div>
+<div class="controller" layout-fill>
+  <div class="header">
+    <h2 class="">Room{{roomId}}</h2>
+  </div>
+  <div class="wrapper">
+    <img ng-click="client.t(roomId)" src="images/teamButton_t.png" />
+    <img ng-click="client.e(roomId)" src="images/teamButton_e.png" />
+    <img ng-click="client.a(roomId)" src="images/teamButton_a.png" />
+    <img ng-click="client.m(roomId)" src="images/teamButton_m.png" />
+  </div>
+  <div class="footer">
+    <a
+      ng-href="#/"
+      class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+      back
+    </a>
   </div>
 </div>

@@ -16,20 +16,20 @@ angular.module('webControllerApp')
     });
     
     var client = {
-      up: function (roomId){
+      t : function(roomId) {
         webSocket.send("" + roomId + "," + 0);
       },
-      down: function (roomId){
+      e : function(roomId) {
         webSocket.send("" + roomId + "," + 1);
       },
-      left: function (roomId){
+      a : function(roomId) {
         webSocket.send("" + roomId + "," + 2);
       },
-      right: function (roomId){
+      m : function(roomId) {
         webSocket.send("" + roomId + "," + 3);
       },
       shake: function (roomId){
-        webSocket.send("" + roomId + "," + 4);
+        // webSocket.send("" + roomId + "," + 4);
       }
     };
     return client;

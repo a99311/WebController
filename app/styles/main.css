@@ -25,3 +25,88 @@
 	margin: 0 auto;
 	width: 56px;
 }
+
+#container {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+.controller {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+
+    box-sizing: border-box;
+    background-color: rgb(250, 227, 50);
+}
+
+.controller .header h2 {
+    margin: 20px 0px 0px 20px;
+    color: rgb(158, 158, 158);
+}
+
+.controller .wrapper {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0px;
+
+    /*
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-flex-wrap: nowrap;
+        -ms-flex-wrap: nowrap;
+            flex-wrap: nowrap;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    */
+
+    display: table;
+    text-align: center;
+
+    background-image: url(../images/teamButton_base.png);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center center;
+    background-size: 243px 243px;
+}
+
+.controller .wrapper:before {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    margin-right: -0.25em; /* Adjusts for spacing */
+}
+
+.controller .wrapper img {
+    display: inline-block;
+    vertical-align: middle;
+    height: 100px;
+    margin-top: -8px;
+}
+
+.controller .wrapper img:active {
+    visibility: hidden;
+}
+
+.controller .footer {
+    position: absolute;
+    bottom: 0px;
+}
+
+
